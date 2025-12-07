@@ -1,0 +1,140 @@
+<!-- FILE: cuento.html -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuento — Tras el Portal.</title>
+<style>
+body {
+margin: 0;
+font-family: 'Georgia', serif;
+background: url('Portal.jpg') no-repeat center center fixed; /* 👈 Fondo de la página web */
+  background-size: cover;  /* Hace que la imagen cubra toda la pantalla */
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+overflow: hidden;
+}
+.book {
+width: 800px;
+height: 500px;
+perspective: 1500px;
+}
+.page {
+width: 100%;
+height: 100%;
+background: #fffdf5;
+border: 1px solid #ccc;
+position: absolute;
+transform-origin: left;
+transition: transform 1s;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+padding: 30px;
+backface-visibility: hidden;
+}
+.page h2 { margin-top: 0; }
+.controls {
+position: absolute;
+bottom: 20px;
+width: 100%;
+text-align: center;
+}
+button {
+margin: 0 10px;
+padding: 8px 16px;
+font-size: 16px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+background: #f4a261;
+color: #fff;
+}
+button:hover { background: #e76f51; }
+</style>
+</head>
+<body>
+<div class="book" id="book">
+<div class="page" style="z-index:4">
+<h2>Tras el Portal</h2>
+<p>Era un maravilloso sábado de 2025 y Luca estaba muy contento de ir con su padre a su trabajo, que era minero. Luca tenía 10 años, era bondadoso, amable, curioso, un ávido lector y se preocupaba por los demás. Al llegar a la mina donde trabajaba su padre se dio cuenta de que un túnel estaba cerrado, y le preguntó:</p>
+<p>- Papá, ¿por qué este túnel está cerrado?</p>
+
+<p>- No lo sé, lleva décadas sin abrirse. -contestó su padre.</p>
+
+<p>Su curiosidad le llevó hasta dentro del túnel cerrado mientras su padre y los demás mineros no miraban.  </p>
+</div>
+<div class="page" style="z-index:3">
+<p>Cuando entró, tenía un poco de miedo, pero siguió caminando hasta que se encontró una cosa que brillaba. ¡Era un portal! Luca se sorprendió mucho al verlo y tenía tanta curiosidad que lo tocó, cuando, de repente, el portal se abrió. Luca se acercó un poco para contemplarlo, pero una fuerza le agarró y se vio sumergido en la luz del portal.</p>
+
+<p>Luca se despertó en un sitio desconocido. Parecían haber pasado horas desde que entró por el túnel, pero en realidad solo habían pasado unos minutos.</p>
+
+<p>Se encontraba en un bosque extraño que no había visto nunca, se incorporó y empezó a descubrir ese desconocido lugar. El bosque era de colores oscuros, el aire estaba contaminado y las plantas se veían mustias. Después de mucho caminar se encontró con una pequeña cabaña, en no muy buen estado, en mitad del bosque. Sin saber muy bien qué hacer, entró en la cabaña para ver si había alguien. Al entrar, se encontró con un viejo sentado junto a una mesa. El anciano, sorprendido, al verle entrar, le dijo: </p>
+</div>
+<div class="page" style="z-index:2">
+<p>- Siéntate.</p>
+
+<p>Luca no muy convencido se acercó a él, tenía que averiguar por qué la naturaleza estaba en tan mal estado y qué era ese lugar.</p>
+
+<p>Cuando se sentó con él, le preguntó:</p>
+
+<p>- ¿Qué es este lugar?</p>
+
+<p>El anciano no contestó y Luca volvió a preguntar:</p>
+
+<p>- ¿Por qué está todo contaminado?</p>
+
+<p>El anciano, después de unos segundos en silencio, empezó a hablar:  </p>
+<p>
+</div>
+<div class="page" style="z-index:1">
+<p>- Hace muchos años cuando aun no había nacido, los humanos empezaron a tener más conocimiento. Hicieron fábricas para crear más robots, pero se volvieron locos, querían crear más y más, para que el mundo fuera mejor, pero en realidad lo empeoraron. Las personas, sin darse cuenta, empezaron a contaminar el aire con las fábricas, después comenzaron a gastar más electricidad para recargar a los robots. Hasta que al final el mundo acabó así.</p>
+
+<p>Cuando el anciano terminó de hablar, a Luca le entró un mal presentimiento, y preguntó:</p>
+
+<p>-¿Dónde estoy? ¿En qué planeta?</p>
+
+<p>- En la TIERRA. - contestó el anciano. </p>
+<p>
+<strong>Fin.</strong></p>
+</div>
+</div>
+<div class="controls">
+<button onclick="prevPage()">⬅️ Anterior</button>
+<button onclick="nextPage()">Siguiente ➡️</button>
+<a href="index.html"><button>🏠 Inicio</button></a>
+</div>
+
+
+<script>
+let currentPage = 0;
+const pages = document.querySelectorAll('.page');
+
+
+function updatePages(){
+pages.forEach((page, index) => {
+if(index < currentPage){
+page.style.transform = 'rotateY(-180deg)';
+} else {
+page.style.transform = 'rotateY(0deg)';
+}
+});
+}
+
+
+function nextPage(){
+if(currentPage < pages.length){
+currentPage++;
+updatePages();
+}
+}
+function prevPage(){
+if(currentPage > 0){
+currentPage--;
+updatePages();
+}
+}
+</script>
+</body>
+</html>
